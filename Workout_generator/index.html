@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WRK 0v7</title>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- MapHighlight -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+    
+    <script type="text/javascript">
+        (function($){$.extend({metadata:{defaults:{type:'class',name:'metadata',cre:/({.*})/,single:'metadata'},setType:function(type,name){this.defaults.type=type;this.defaults.name=name;},get:function(elem,opts){var settings=$.extend({},this.defaults,opts);if(!settings.single.length)settings.single='metadata';var data=$.data(elem,settings.single);if(data)return data;data="{}";if(settings.type=="class"){var m=settings.cre.exec(elem.className);if(m)data=m[1];}else if(settings.type=="elem"){if(!elem.getElementsByTagName)return;var e=elem.getElementsByTagName(settings.name);if(e.length)data=$.trim(e[0].innerHTML);}else if(elem.getAttribute!=undefined){var attr=elem.getAttribute(settings.name);if(attr)data=attr;}if(data.indexOf('{')<0)data="{"+data+"}";data=eval("("+data+")");$.data(elem,settings.single,data);return data;}}});$.fn.metadata=function(opts){return $.metadata.get(this[0],opts);};})(jQuery);
+    </script>
+
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"/>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron&family=Teko:wght@300&display=swap" rel="stylesheet">
+
+
+    <!-- IntroJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@6.0.0/introjs.css">
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@6.0.0/intro.js" defer></script>
+
+    <!-- JavaScript -->
+    <script src="main.js" defer></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+
+    <header>
+        <h1 class="title"><span class='glowing-title'>WRK 0 <sub>v</sub> 2</span></h1>
+        <button class='premium-btn'>
+            <span class='glowing-txt'>PR<span class='faulty-letter'>E</span>MIUM</span>
+        </button>
+    </header>
+
+    <dialog class="alert-box">
+        <strong>You've reached the maximum amount of cards for the free version.</strong>
+        <strong>Upgrade to the premium version to our premium version for unlimited cards, 80+ exercises, biometric data, and more!</strong>  
+        <strong>Check it out now!</strong>
+        <button class='premium-btn'>
+            <span class='glowing-txt'>PREMIUM</span>
+        </button>
+        <a onclick="deleteBox(this)" class="delete-alert">
+            <i class="bi bi-x-circle-fill btn-icon"></i>
+        </a>
+    </dialog>
+    
+    <aside>
+        <ul>
+      
+        <li>
+            <a href="#">
+            <i class="bi bi-facebook"></i>
+            <span>@Wrk0v7</span></a>
+        </li>
+    
+        <li><a href="#">
+            <i class="bi bi-twitter"></i>
+            <span>@Wrk0v7</span></a>
+        </li>
+    
+        <li><a href="#">
+            <i class="bi bi-instagram"></i>
+            <span>@Wrk0v7</span></a>
+        </li>
+      
+        <li><a href="#">
+            <i class="bi bi-youtube"></i>
+            <span>@Wrk0v7</span></a>
+        </li>
+      
+        </ul>
+      </aside>
+    
+    <div class="mode-section">
+
+        <div id="step-one" class="mode-container" onclick="clickRecognizer(event)">
+            <div class="mode">
+                <div class="mode-inner" id="resistance">
+                    <div class="mode-line"></div>
+                    <h3>Resistance</h3>
+                    <p>Maximize Endurance</p> 
+                </div>
+            </div>
+
+            <div class="mode">
+                <div class="mode-inner" id="strenght">
+                    <div class="mode-line"></div>
+                    <h3>Strenght</h3>
+                    <p>Improve Power</p> 
+                </div>
+            </div>
+
+            <div class="mode">
+                <div class="mode-inner" id="hypertrophy">
+                    <div class="mode-line"></div>
+                    <h3>Hypertrophy</h3>
+                    <p>Build Muscles</p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="mode-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </div>
+
+    <main class="main-container">
+
+        <div class="card-container">
+
+        <label class="switch">
+            <input type="checkbox" class="checkbox"/>
+            <span class="slider">
+                <span class="side">Front</span>
+                <span class="side">Back</span>
+            </span>
+        </label>
+
+        <div id="step-two" class="card-div" onclick="clickRecognizer(event)">
+            <div class="card-front">
+                <img id="front-img" src="Images/Body Front.png" usemap="#front-map">
+
+                <map id="front-map" name="front-map">
+                    <area id="chest" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Chest"  coords="131,115,138,137,147,146,162,146,175,143,196,145,214,146,226,144,232,136,236,125,238,114,236,106,227,101,216,97,194,96,172,98,154,97,144,98,135,104" shape="poly">
+                    <area id="abs" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Abs"  coords="164,151,149,161,139,172,144,185,146,198,147,219,157,231,176,239,197,240,210,235,223,225,221,203,222,191,225,179,230,168,224,157,209,150" shape="poly">
+                    <area id="shoulders" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Shoulders"  coords="141,93,114,129,111,116,115,104,120,96,130,91" shape="poly">
+                    <area id="shoulders" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Shoulders"  coords="227,95,257,128,259,116,252,103,242,95" shape="poly">
+                    <area id="biceps" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Biceps"  coords="127,121,111,138,100,164,108,173,119,175,128,161" shape="poly">
+                    <area id="biceps" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Biceps"  coords="240,119,257,134,264,155,263,168,252,178,238,153" shape="poly">
+                    <area id="forearms" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Forearms"  coords="95,178,110,191,82,227,71,220" shape="poly">
+                    <area id="forearms" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Forearms"  coords="255,188,276,176,295,214,284,220" shape="poly">
+                    <area id="adductors" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Adductors"  coords="163,253,181,280,179,316,169,357,167,301" shape="poly">
+                    <area id="adductors" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Adductors"  coords="204,256,190,278,187,307,203,358" shape="poly">
+                    <area id="quads" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Quads"  coords="159,253,165,358,151,368,135,360,126,321,132,277" shape="poly">
+                    <area id="quads" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Quads"  coords="208,251,206,365,224,371,238,360,245,316,239,278" shape="poly">
+                </map>
+            </div>
+            <div class="card-back">
+                
+
+                <img id="back-img" src="Images/Body Back.png" usemap="#back-map">
+
+                <map id="back-map" name="back-map">
+                    <area id="traps" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Traps"  coords="150,116,169,134,172,180,194,212,219,186,225,138,242,112,214,93,181,92" shape="poly">
+                    <area id="lats" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Lats"  coords="144,181,168,182,193,218,225,183,249,180,232,210,233,238,197,261,157,239,157,210" shape="poly">
+                    <area id="romboids" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Romboids"  coords="231,135,224,177,251,175,252,134" shape="poly">
+                    <area id="romboids" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Romboids"  coords="164,137,169,175,141,170,138,135" shape="poly">
+                    <area id="triceps" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Triceps"  coords="135,145,136,172,119,203,108,201,105,186,119,154" shape="poly">
+                    <area id="triceps" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Triceps"  coords="257,137,254,164,265,193,280,199,286,180,277,154" shape="poly">
+                    <area id="glutes" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Glutes"  coords="156,251,179,261,193,270,209,266,238,252,240,266,243,280,242,296,233,308,224,314,204,309,197,302,186,309,180,312,166,313,156,309,151,298,146,284,148,267,153,261" shape="poly">
+                    <area id="hamstrings" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Hamstrings"  coords="163,318,182,320,183,347,176,373,165,387,147,381,138,352,142,316" shape="poly">
+                    <area id="hamstrings" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Hamstrings"  coords="204,321,206,346,213,374,228,380,242,372,247,344,242,317" shape="poly">
+                    <area id="calves" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Calves"  coords="218,407,241,406,248,434,243,459,229,483,218,459,212,436" shape="poly">
+                    <area id="calves" class="{stroke:false,fillColor:'2f4f4f',fillOpacity:.7,alwaysOn:false}" title="Calves"  coords="145,405,169,409,174,435,166,462,158,480,141,455,139,430" shape="poly">
+                </map>
+
+            </div>
+        </div>
+        </div>
+
+        <div class="level-div">
+            <h3>LEVEL</h3>
+
+            <div id="step-three" class="level-slider-container">
+                <div class="level-slider-icons">
+                    <i class="bi bi-fire"></i>
+                    <i class="bi bi-fire"></i>
+                    <i class="bi bi-fire"></i>
+                    <i class="bi bi-fire"></i>
+                    <i class="bi bi-fire"></i>
+                </div>
+                <input type="range" min="1" max="5" class="level-slider">
+            </div>
+        </div>
+
+        <div class="exercises-list-div">
+
+            <!-- <div class="final-card">
+                <div class="final-card-inner">
+                    <div class="final-card-line" style="background-color: var();
+                    box-shadow: 0 0 .6rem var();">
+                    </div>
+                    <a onclick="deleteCard(this)" class="delete-final-card-btn">
+                        <i class="bi bi-x-circle-fill btn-icon"></i>
+                    </a>
+                    <article class="data">
+                        <p class="p-difficulty">
+                            <i class="bi bi-fire"></i>
+                            <i class="bi bi-fire"></i>
+                            <i class="bi bi-fire"></i>
+                            <i class="bi bi-fire"></i>
+                            <i class="bi bi-fire"></i>
+                        </p>
+                        <p id="p-exercise-name">Test exercise</p>
+                        <ul id="ul-finalcard">
+                            <li id="li-finalcard">Sets: 5</li>
+                            <li id="li-finalcard">Reps: 5</li>
+                            <li id="li-finalcard">Rest: 5</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+ -->
+        </div>
+
+    </main> 
+
+
+    <script>
+
+        $(function() {$('#front-img').maphilight()});
+        $(function() {$('#back-img').maphilight()});
+
+        $(document).ready(function(e) {
+        $('img[usemap]').rwdImageMaps();
+        });
+
+        ;(function($) {
+            $.fn.rwdImageMaps = function() {
+                var $img = this;
+
+                var rwdImageMap = function() {
+                    $img.each(function() {
+                        if (typeof($(this).attr('usemap')) == 'undefined')
+                            return;
+
+                        var that = this,
+                            $that = $(that);
+
+                        // Since WebKit doesn't know the height until after the image has loaded, perform everything in an onload copy
+                        $('<img />').on('load', function() {
+                            var attrW = 'width',
+                                attrH = 'height',
+                                w = $that.attr(attrW),
+                                h = $that.attr(attrH);
+
+                            if (!w || !h) {
+                                var temp = new Image();
+                                temp.src = $that.attr('src');
+                                if (!w)
+                                    w = temp.width;
+                                if (!h)
+                                    h = temp.height;
+                            }
+
+                            var wPercent = $that.width()/100,
+                                hPercent = $that.height()/100,
+                                map = $that.attr('usemap').replace('#', ''),
+                                c = 'coords';
+
+                            $('map[name="' + map + '"]').find('area').each(function() {
+                                var $this = $(this);
+                                if (!$this.data(c))
+                                    $this.data(c, $this.attr(c));
+
+                                var coords = $this.data(c).split(','),
+                                    coordsPercent = new Array(coords.length);
+
+                                for (var i = 0; i < coordsPercent.length; ++i) {
+                                    if (i % 2 === 0)
+                                        coordsPercent[i] = parseInt(((coords[i]/w)*100)*wPercent);
+                                    else
+                                        coordsPercent[i] = parseInt(((coords[i]/h)*100)*hPercent);
+                                }
+                                $this.attr(c, coordsPercent.toString());
+                            });
+                        }).attr('src', $that.attr('src'));
+                    });
+                };
+                $(window).resize(rwdImageMap).trigger('resize');
+
+                return this;
+            };
+        })(jQuery);
+
+        ;(function(a){a.fn.rwdImageMaps=function(){var c=this;var b=function(){c.each(function(){if(typeof(a(this).attr("usemap"))=="undefined"){return}var e=this,d=a(e);a("<img />").on('load',function(){var g="width",m="height",n=d.attr(g),j=d.attr(m);if(!n||!j){var o=new Image();o.src=d.attr("src");if(!n){n=o.width}if(!j){j=o.height}}var f=d.width()/100,k=d.height()/100,i=d.attr("usemap").replace("#",""),l="coords";a('map[name="'+i+'"]').find("area").each(function(){var r=a(this);if(!r.data(l)){r.data(l,r.attr(l))}var q=r.data(l).split(","),p=new Array(q.length);for(var h=0;h<p.length;++h){if(h%2===0){p[h]=parseInt(((q[h]/n)*100)*f)}else{p[h]=parseInt(((q[h]/j)*100)*k)}}r.attr(l,p.toString())})}).attr("src",d.attr("src"))})};a(window).resize(b).trigger("resize");return this}})(jQuery);
+
+    </script>
+
+</body>
+</html>
